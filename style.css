@@ -7,16 +7,16 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --bg:        #14100D;
-  --bg-panel:  #1C1613;
-  --bg-raised: #241C18;
-  --crimson:   #009b3b;
-  --crimson-bright: #41b100;
-  --gold:      #B8925A;
-  --gold-dim:  #8A6C46;
-  --bone:      #E8E0D3;
-  --bone-dim:  #9C8F7D;
-  --hairline:  #3A2F28;
+  --bg:        #0C1513;
+  --bg-panel:  #121F1B;
+  --bg-raised: #182A24;
+  --crimson:   #1F6B5A;
+  --crimson-bright: #2E9A80;
+  --gold:      #8FC4B4;
+  --gold-dim:  #5E8C7E;
+  --bone:      #E3EDE8;
+  --bone-dim:  #90A8A0;
+  --hairline:  #263C35;
 
   --display: 'Times New Roman', Times, Georgia, serif;
   --body: 'Times New Roman', Times, Georgia, serif;
@@ -37,8 +37,8 @@ body {
   margin: 0;
   background: var(--bg);
   background-image:
-    radial-gradient(ellipse at top, rgba(122,31,43,0.10), transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(184,146,90,0.06), transparent 55%);
+    radial-gradient(ellipse at top, rgba(31,107,90,0.14), transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(143,196,180,0.06), transparent 55%);
   color: var(--bone);
   font-family: var(--body);
   font-size: 19px;
