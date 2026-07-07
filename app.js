@@ -17,8 +17,8 @@ function el(tag, opts = {}, children = []) {
   return node;
 }
 
-function media(image, label) {
-  const wrap = el('div', { class: 'card-media' });
+function media(image, label, mediaClass) {
+  const wrap = el('div', { class: mediaClass });
   if (image) {
     wrap.appendChild(el('img', { attrs: { src: image, alt: label, loading: 'lazy' } }));
   } else {
@@ -27,10 +27,13 @@ function media(image, label) {
   return wrap;
 }
 
-function tagRow(tags) {
-  const row = el('div', { class: 'tag-row' });
-  (tags || []).forEach(t => row.appendChild(el('span', { class: 'tag', text: t })));
-  return row;
+function tagLine(tags) {
+  const line = el('div', { class: 'entry-tags' });
+  (tags || []).forEach((t, i) => {
+    if (i > 0) line.appendChild(el('span', { class: 'sep', text: '·' }));
+    line.appendChild(el('span', { text: t }));
+  });
+  return line;
 }
 
 /* ---------- Nav + Hero ---------- */
@@ -55,33 +58,35 @@ metaParts.forEach((m, i) => {
 /* ---------- About ---------- */
 document.getElementById('about-text').textContent = (C.about || '').replace(/\s+/g, ' ').trim();
 
-/* ---------- Games ---------- */
+/* ---------- Games (editorial entries, no card boxes) ---------- */
 const gamesGrid = document.getElementById('games-grid');
+gamesGrid.className = 'entries';
 (C.featuredProjects || []).forEach(p => {
-  const links = el('div', { class: 'card-links' });
+  const links = el('div', { class: 'entry-links' });
   if (p.playUrl) links.appendChild(el('a', { text: 'Play →', attrs: { href: p.playUrl, target: '_blank', rel: 'noopener' } }));
   if (p.codeUrl) links.appendChild(el('a', { text: 'Code →', attrs: { href: p.codeUrl, target: '_blank', rel: 'noopener' } }));
 
-  const body = el('div', { class: 'card-body' }, [
-    el('span', { class: 'card-type', text: p.type }),
-    el('h3', { class: 'card-title', text: p.title }),
-    el('p', { class: 'card-blurb', text: p.blurb }),
-    p.designNote ? el('p', { class: 'card-note', text: p.designNote }) : null,
-    tagRow(p.tags),
+  const content = el('div', { class: 'entry-content' }, [
+    el('span', { class: 'entry-type', text: p.type }),
+    el('h3', { class: 'entry-title', text: p.title }),
+    el('p', { class: 'entry-blurb', text: p.blurb }),
+    p.designNote ? el('p', { class: 'entry-note', text: p.designNote }) : null,
+    tagLine(p.tags),
     links
   ]);
 
-  gamesGrid.appendChild(el('div', { class: 'card' }, [media(p.image, p.title), body]));
+  gamesGrid.appendChild(el('div', { class: 'entry' }, [media(p.image, p.title, 'entry-media'), content]));
 });
 
 /* ---------- Tabletop ---------- */
 document.getElementById('tabletop-intro').textContent = (C.tabletopWork?.intro || '').replace(/\s+/g, ' ').trim();
 
 const sbGrid = document.getElementById('statblocks-grid');
+sbGrid.className = 'statblock-row';
 (C.tabletopWork?.statblocks || []).forEach(sb => {
   if (!sb.name) return;
   const block = el('div', { class: 'statblock' }, [
-    media(sb.image, sb.name),
+    media(sb.image, sb.name, 'statblock-media'),
     el('h3', { text: sb.name }),
     sb.role ? el('div', { class: 'role', text: sb.role }) : null,
     sb.note ? el('p', { class: 'note', text: sb.note }) : null
@@ -100,20 +105,21 @@ if (wb && wb.title) {
   sampleWrap.appendChild(el('div', { class: 'worldbuilding-sample' }, children));
 }
 
-/* ---------- Technical projects ---------- */
+/* ---------- Technical projects (same editorial entry style) ---------- */
 const techGrid = document.getElementById('technical-grid');
+techGrid.className = 'entries';
 (C.technicalProjects || []).forEach(p => {
-  const links = el('div', { class: 'card-links' });
+  const links = el('div', { class: 'entry-links' });
   if (p.codeUrl) links.appendChild(el('a', { text: 'Code →', attrs: { href: p.codeUrl, target: '_blank', rel: 'noopener' } }));
 
-  const body = el('div', { class: 'card-body' }, [
-    el('span', { class: 'card-type', text: p.type }),
-    el('h3', { class: 'card-title', text: p.title }),
-    el('p', { class: 'card-blurb', text: p.blurb }),
-    tagRow(p.tags),
+  const content = el('div', { class: 'entry-content' }, [
+    el('span', { class: 'entry-type', text: p.type }),
+    el('h3', { class: 'entry-title', text: p.title }),
+    el('p', { class: 'entry-blurb', text: p.blurb }),
+    tagLine(p.tags),
     links
   ]);
-  techGrid.appendChild(el('div', { class: 'card' }, [body]));
+  techGrid.appendChild(el('div', { class: 'entry' }, [media(p.image, p.title, 'entry-media'), content]));
 });
 
 /* ---------- Experience ---------- */
@@ -135,7 +141,7 @@ const skillsGrid = document.getElementById('skills-grid');
 Object.entries(C.skills || {}).forEach(([group, items]) => {
   skillsGrid.appendChild(el('div', { class: 'skill-group' }, [
     el('h3', { text: group }),
-    tagRow(items)
+    el('p', { class: 'skill-list', text: (items || []).join(' · ') })
   ]));
 });
 
