@@ -21,55 +21,33 @@ const SITE_CONTENT = {
   identity: {
     name: "Zaki Pugh-Fradot",
     role: "Game Designer & Developer",
-    tagline: "I design systems that bite back — adaptive AI, escalating mechanics, and worlds built to be played in.",
+    tagline: "I love making games and worlds and seeing people enjoy them.",
     location: "West Kelowna, BC",
     email: "zakipughfradot@gmail.com",
     phone: "+1 236 457 3069",
     links: [
       { label: "itch.io", url: "https://hatllama.itch.io/" },
-      { label: "GitHub", url: "https://github.com/" }, // <-- put your real GitHub profile URL here
+      { label: "GitHub", url: "https://github.com/hatllama" },
       { label: "LinkedIn", url: "https://www.linkedin.com/in/zaki-pugh-fradot-a3b718262/" }
     ]
   },
 
   // ---------- ABOUT / SUMMARY ----------
-  about: `Computer Science graduate (UBC, High Distinction) working across backend engineering
-  and hands-on game design. I build playable prototypes fast, test them against real players,
-  and iterate — recent work spans a roguelite boss-combat simulator, a continuous-play card game
-  with a scaling final-boss enemy, and a live client-facing tournament overlay built under deadline.
-  Equally comfortable writing the mechanics as I am worldbuilding the setting they live in.`,
+  about: `I am a Computer Science graduate from UBC (High Distinction) who loves making games, telling stories and watching people enjoy them. I have worked across a variety of different fields
+  with experience in both backend engineering and community management. I also have many small projects under my belt; the primary game designer on multiple games, the dungeon master for two long form
+  homebrew Dungeons&Dragons campaigns. I am proficient in balancing mechanics, creating worlds and everything within and working within teams of peopele to bring these visions to life.`,
 
   // ---------- FEATURED GAME PROJECTS (itch.io + prototypes) ----------
   // These get the biggest cards. Put your best 3-5 here.
   featuredProjects: [
-    {
-      title: "Voracis, the Famine King",
-      type: "Card Game Prototype",
-      blurb: "A no-turn, continuous-play card game built around a single scaling enemy — Voracis grows hungrier the longer the game runs, forcing players to balance greed against a ticking difficulty curve.",
-      designNote: "Design problem: most card games lose tension once players learn the pattern. Removing turns entirely, and tying escalation directly to real elapsed actions rather than rounds, keeps the pressure honest.",
-      tags: ["Systems Design", "HTML/JS", "Single-file build"],
-      image: "",
-      playUrl: "https://hatllama.itch.io/",
-      codeUrl: ""
-    },
-    {
-      title: "Boss Combat Simulator",
-      type: "Roguelite RPG",
-      blurb: "You play the boss. A roguelite combat simulator where the player controls an encounter-ending monster fighting an adapting hero party that learns and counters your patterns over time.",
-      designNote: "Design problem: boss fights are usually one-sided authorship. Flipping control to the boss and making the hero party adaptive turns it into a real two-way system.",
-      tags: ["AI/Adaptive Systems", "HTML/JS", "Single-file build"],
-      image: "",
-      playUrl: "https://hatllama.itch.io/",
-      codeUrl: ""
-    },
     {
       title: "Duck Guns",
       type: "Arcade Shooter — Unity",
       blurb: "A round-based Duck Hunt clone with unique AI ducks, an infinite mode, and upgrade progression. Original audio and UI built in-house.",
       designNote: "",
       tags: ["Unity", "C#", "Arcade"],
-      image: "",
-      playUrl: "https://hatllama.itch.io/",
+      image: "images/duck.png",
+      playUrl: "https://hatllama.itch.io/ducks-guns",
       codeUrl: ""
     },
     {
@@ -78,16 +56,26 @@ const SITE_CONTENT = {
       blurb: "A Vampire Survivors-inspired roguelike built in 48 hours: enemy wave systems, upgrade mechanics, and dynamic weapon combos.",
       designNote: "",
       tags: ["Unity", "Game Jam", "Roguelike"],
+      image: "images/pablo.png",
+      playUrl: "https://hatllama.itch.io/pablo-may-die",
+      codeUrl: ""
+    },
+    {
+      title: "Spaghetti Western",
+      type: "Puzzle Game — GMTK Game Jam 2025",
+      blurb: "A short narrative puzzle game built around humorous scenarios and comedic problem-solving.",
+      designNote: "",
+      tags: ["Unity", "Game Jam", "Narrative"],
       image: "",
       playUrl: "https://hatllama.itch.io/",
       codeUrl: ""
     },
     {
-      title: "John Spaghetti",
-      type: "Puzzle Game — GMTK Game Jam 2025",
-      blurb: "A short narrative puzzle game built around humorous scenarios and comedic problem-solving.",
-      designNote: "",
-      tags: ["Unity", "Game Jam", "Narrative"],
+      title: "Card Game",
+      type: "Card Game Prototype",
+      blurb: "A no-turn, continuous-play card game built around a single scaling enemy — Voracis grows hungrier the longer the game runs, forcing players to balance greed against a ticking difficulty curve.",
+      designNote: "Design problem: most card games lose tension once players learn the pattern. Removing turns entirely, and tying escalation directly to real elapsed actions rather than rounds, keeps the pressure honest.",
+      tags: ["Systems Design", "HTML/JS", "Single-file build"],
       image: "",
       playUrl: "https://hatllama.itch.io/",
       codeUrl: ""
@@ -102,28 +90,33 @@ const SITE_CONTENT = {
     development for two long-running campaigns.`,
     statblocks: [
       {
-        name: "Statblock name",
-        role: "e.g. Swarm-type mini-boss",
-        note: "One line on the mechanical niche this fills or the player experience it creates.",
-        image: ""
+        name: "Shun Nonibu",
+        role: "Boss fight",
+        note: "Fun flavoured version of a dark flame swordsman.",
+        image: "images/Shun.jpg"
       },
       {
-        name: "Statblock name",
-        role: "",
-        note: "",
-        image: ""
+        name: "Kim Gong-Ja",
+        role: "Adapted Character",
+        note: "Adaptation of a manga character into a statblock.",
+        image: "images/Kim.jpg"
       },
       {
-        name: "Statblock name",
-        role: "",
-        note: "",
-        image: ""
+        name: "Chainbinder",
+        role: "Support Unit",
+        note: "A lower CR support unit.",
+        image: "images/Chainbinder.jpg"
       }
     ],
     worldbuildingSample: {
-      title: "Campaign / setting title",
-      summary: "A short 2-4 sentence pitch of the setting, its central tension, and one faction or plot hook that shows how you structure long-form narrative design. Pull this from your Google Drive notes or Kanka campaign — write it fresh rather than pasting raw notes.",
+      title: "Ebonthar",
+      summary: "A three year long campaign that followed my players from levels 3 to 15. They explored a large expansive kingdom, unraveled a complex conspiracy and battled their way through a variety of different encounters. ",
       link: "" // optional: link to a cleaned-up PDF or doc, or your Kanka page
+    },
+    worldbuildingSample2: {
+      title: "Gods Above, Gods Below",
+      summary: "Newer campaign that has my players exploring a world where gods roam the land. Carefully constructed within a complex worldbuilding repository. ",
+      link: "https://app.kanka.io/w/390592" // optional: link to a cleaned-up PDF or doc, or your Kanka page
     }
   },
 
