@@ -76,7 +76,7 @@ const SITE_CONTENT = {
       blurb: "A no-turn, continuous-play card game built around a single scaling enemy — Voracis grows hungrier the longer the game runs, forcing players to balance greed against a ticking difficulty curve.",
       designNote: "Design problem: most card games lose tension once players learn the pattern. Removing turns entirely, and tying escalation directly to real elapsed actions rather than rounds, keeps the pressure honest.",
       tags: ["Systems Design", "HTML/JS", "Single-file build"],
-      image: "WIP.png",
+      image: "images/WIP.png",
       playUrl: "https://hatllama.itch.io/",
       codeUrl: ""
     }
