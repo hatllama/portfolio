@@ -35,7 +35,7 @@ const SITE_CONTENT = {
   // ---------- ABOUT / SUMMARY ----------
   about: `I am a Computer Science graduate from UBC (High Distinction) who loves making games, telling stories and watching people enjoy them. I have worked across a variety of different fields
   with experience in both backend engineering and community management. I also have many small projects under my belt; the primary game designer on multiple games, the dungeon master for two long form
-  homebrew Dungeons&Dragons campaigns. I am proficient in balancing mechanics, creating worlds and everything within and working within teams of peopele to bring these visions to life.`,
+  homebrew Dungeons&Dragons campaigns. I am proficient in balancing mechanics, creating worlds and everything within and working within teams of people to bring these visions to life.`,
 
   // ---------- FEATURED GAME PROJECTS (itch.io + prototypes) ----------
   // These get the biggest cards. Put your best 3-5 here.
