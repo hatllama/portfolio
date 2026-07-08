@@ -46,7 +46,7 @@ const SITE_CONTENT = {
       blurb: "A round-based Duck Hunt clone with unique AI ducks, an infinite mode, and upgrade progression. Original audio and UI built in-house.",
       designNote: "",
       tags: ["Unity", "C#", "Arcade"],
-      image: "images/duck.png",
+      image: "images/Duck.png",
       playUrl: "https://hatllama.itch.io/ducks-guns",
       codeUrl: ""
     },
@@ -56,7 +56,7 @@ const SITE_CONTENT = {
       blurb: "A Vampire Survivors-inspired roguelike built in 48 hours: enemy wave systems, upgrade mechanics, and dynamic weapon combos.",
       designNote: "",
       tags: ["Unity", "Game Jam", "Roguelike"],
-      image: "images/pablo.png",
+      image: "images/Pablo.png",
       playUrl: "https://hatllama.itch.io/pablo-may-die",
       codeUrl: ""
     },
@@ -66,8 +66,8 @@ const SITE_CONTENT = {
       blurb: "A short narrative puzzle game built around humorous scenarios and comedic problem-solving.",
       designNote: "",
       tags: ["Unity", "Game Jam", "Narrative"],
-      image: "",
-      playUrl: "https://hatllama.itch.io/",
+      image: "images/Pasta.png",
+      playUrl: "https://hatllama.itch.io/spaghetti-western",
       codeUrl: ""
     },
     {
@@ -76,7 +76,7 @@ const SITE_CONTENT = {
       blurb: "A no-turn, continuous-play card game built around a single scaling enemy — Voracis grows hungrier the longer the game runs, forcing players to balance greed against a ticking difficulty curve.",
       designNote: "Design problem: most card games lose tension once players learn the pattern. Removing turns entirely, and tying escalation directly to real elapsed actions rather than rounds, keeps the pressure honest.",
       tags: ["Systems Design", "HTML/JS", "Single-file build"],
-      image: "",
+      image: "WIP.webp",
       playUrl: "https://hatllama.itch.io/",
       codeUrl: ""
     }
