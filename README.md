@@ -43,12 +43,12 @@ Recommended image sizes: project screenshots ~1200×750px, statblock images
 A few things in `content.js` are marked with placeholder text and need your
 real content:
 
-- **`tabletopWork.statblocks`** — replace the 3 placeholder entries with your
-  best statblocks from Pinterest (pull the images down and drop them in
-  `images/`)
-- **`tabletopWork.worldbuildingSample`** — write a short, clean 2-4 sentence
-  pitch of one campaign (don't paste raw Google Drive/Kanka notes — a
-  condensed rewrite reads much better)
+- **`tabletopWork.campaigns`** — each campaign is its own block with a
+  summary and its own `statblocks` list. Add a new campaign by copying a
+  whole campaign block; add a statblock to a campaign by copying an entry
+  inside that campaign's `statblocks` list. Statblock images render at the
+  same large size as your game screenshots, so use a clean, cropped image
+  per statblock rather than a full stat-sheet screenshot.
 - **`identity.links`** — put your real GitHub profile URL in
 - **`technicalProjects[].codeUrl`** and **`featuredProjects[].codeUrl`** —
   link to the relevant GitHub repos once they're public and have README files

@@ -127,30 +127,21 @@ section:first-of-type { border-top: none; }
 .entry-tags .sep { color: var(--hairline); margin: 0 8px; }
 .entry-links { display: flex; gap: 22px; margin-top: 6px; font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
+.entry.no-media { grid-template-columns: 1fr; }
+
 @media (max-width: 680px) {
   .entry { grid-template-columns: 1fr; }
   .entry-media { aspect-ratio: 16/10; }
 }
 
-/* ---------- Statblocks (bestiary plates) ---------- */
-.statblock-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 30px; }
-.statblock { padding: 4px 26px; border-left: 1px solid var(--hairline); }
-.statblock:first-child { border-left: none; padding-left: 0; }
-.statblock-media { aspect-ratio: 3/4; border: 1px solid var(--hairline); background: linear-gradient(135deg, var(--bg-raised), var(--bg-panel)); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-.statblock-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.statblock-media .ph { font-family: var(--mono); font-size: 0.66rem; color: var(--bone-dim); text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.55; }
-.statblock h3 { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 0 0 3px; color: var(--bone); }
-.statblock .role { font-family: var(--mono); font-size: 0.68rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
-.statblock .note { color: var(--bone-dim); font-size: 0.94rem; margin: 0; }
+/* ---------- Campaigns (each holds a summary + its statblocks as large entries) ---------- */
+.campaign { margin-top: 50px; }
+.campaign:first-child { margin-top: 34px; }
+.campaign .entries { margin-top: 8px; }
+.campaign .entries .entry:first-child { border-top: 1px solid var(--hairline); }
 
-@media (max-width: 720px) {
-  .statblock-row { grid-template-columns: 1fr; }
-  .statblock { border-left: none; padding-left: 0; padding-top: 26px; border-top: 1px solid var(--hairline); }
-  .statblock:first-child { border-top: none; padding-top: 0; }
-}
-
-.worldbuilding-sample { border-left: 2px solid var(--crimson); padding: 4px 0 4px 26px; margin-top: 44px; }
-.worldbuilding-sample h3 { font-family: var(--display); font-weight: 700; font-style: italic; font-size: 1.25rem; margin: 0 0 12px; color: var(--bone); }
+.worldbuilding-sample { border-left: 2px solid var(--crimson); padding: 4px 0 4px 26px; }
+.worldbuilding-sample h3 { font-family: var(--display); font-weight: 700; font-style: italic; font-size: 1.35rem; margin: 0 0 12px; color: var(--bone); }
 .worldbuilding-sample p { color: var(--bone-dim); margin: 0 0 14px; max-width: 65ch; }
 
 /* ---------- Experience / timeline ---------- */

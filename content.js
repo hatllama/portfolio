@@ -82,42 +82,47 @@ const SITE_CONTENT = {
     }
   ],
 
-  // ---------- TABLETOP / WORLDBUILDING SAMPLES ----------
-  // Replace these placeholders with 4-8 of your strongest Pinterest statblocks,
-  // and one polished writeup pulled from your Google Drive notes or Kanka campaign.
+  // ---------- TABLETOP / WORLDBUILDING ----------
+  // Each campaign is its own block: a summary plus any statblocks that
+  // belong to it. Add a new campaign by copying a whole { ... } block
+  // in the campaigns list below. Add a statblock to a campaign by copying
+  // an entry inside that campaign's "statblocks" list.
   tabletopWork: {
     intro: `Homebrew D&D design work — monster and encounter design, plus setting and plot
     development for two long-running campaigns.`,
-    statblocks: [
+    campaigns: [
       {
-        name: "Shun Nonibu",
-        role: "Boss fight",
-        note: "Fun flavoured version of a dark flame swordsman.",
-        image: "images/Shun.jpg"
+        title: "Ebonthar",
+        summary: "A three year long campaign that followed my players from levels 3 to 15. They explored a large expansive kingdom, unraveled a complex conspiracy and battled their way through a variety of different encounters.",
+        link: "", // optional: link to a cleaned-up PDF, doc, or Kanka page
+        statblocks: [
+          {
+            name: "Shun Nonibu",
+            role: "Boss Fight",
+            note: "Fun flavoured version of a dark flame swordsman.",
+            image: "images/Shun.jpg"
+          },
+          {
+            name: "Kim Gong-Ja",
+            role: "Adapted Character",
+            note: "Adaptation of a manga character into a statblock.",
+            image: "images/Kim.jpg"
+          },
+          {
+            name: "Chainbinder",
+            role: "Support Unit",
+            note: "A lower CR support unit.",
+            image: "images/Chainbinder.jpg"
+          }
+        ]
       },
       {
-        name: "Kim Gong-Ja",
-        role: "Adapted Character",
-        note: "Adaptation of a manga character into a statblock.",
-        image: "images/Kim.jpg"
-      },
-      {
-        name: "Chainbinder",
-        role: "Support Unit",
-        note: "A lower CR support unit.",
-        image: "images/Chainbinder.jpg"
+        title: "Gods Above, Gods Below",
+        summary: "Newer campaign that has my players exploring a world where gods roam the land. Carefully constructed within a complex worldbuilding repository.",
+        link: "https://app.kanka.io/w/390592",
+        statblocks: []
       }
-    ],
-    worldbuildingSample: {
-      title: "Ebonthar",
-      summary: "A three year long campaign that followed my players from levels 3 to 15. They explored a large expansive kingdom, unraveled a complex conspiracy and battled their way through a variety of different encounters. ",
-      link: "" // optional: link to a cleaned-up PDF or doc, or your Kanka page
-    },
-    worldbuildingSample2: {
-      title: "Gods Above, Gods Below",
-      summary: "Newer campaign that has my players exploring a world where gods roam the land. Carefully constructed within a complex worldbuilding repository. ",
-      link: "https://app.kanka.io/w/390592" // optional: link to a cleaned-up PDF or doc, or your Kanka page
-    }
+    ]
   },
 
   // ---------- TECHNICAL / SOFTWARE PROJECTS ----------
@@ -201,7 +206,7 @@ const SITE_CONTENT = {
     {
       title: "Bachelor of Science, Computer Science",
       org: "University of British Columbia — High Distinction",
-      dates: "",
+      dates: "2026",
       points: ["Relevant courses: Deep/Machine Learning, AI, Game Development, Software Engineering, HCI."]
     },
     {

@@ -78,34 +78,40 @@ gamesGrid.className = 'entries';
   gamesGrid.appendChild(el('div', { class: 'entry' }, [media(p.image, p.title, 'entry-media'), content]));
 });
 
-/* ---------- Tabletop ---------- */
+/* ---------- Tabletop: one block per campaign, statblocks shown large ---------- */
 document.getElementById('tabletop-intro').textContent = (C.tabletopWork?.intro || '').replace(/\s+/g, ' ').trim();
 
-const sbGrid = document.getElementById('statblocks-grid');
-sbGrid.className = 'statblock-row';
-(C.tabletopWork?.statblocks || []).forEach(sb => {
-  if (!sb.name) return;
-  const block = el('div', { class: 'statblock' }, [
-    media(sb.image, sb.name, 'statblock-media'),
-    el('h3', { text: sb.name }),
-    sb.role ? el('div', { class: 'role', text: sb.role }) : null,
-    sb.note ? el('p', { class: 'note', text: sb.note }) : null
+const campaignsWrap = document.getElementById('campaigns');
+(C.tabletopWork?.campaigns || []).forEach(camp => {
+  if (!camp.title) return;
+
+  const headerChildren = [
+    el('h3', { text: camp.title }),
+    el('p', { text: camp.summary })
+  ];
+  if (camp.link) headerChildren.push(el('a', { text: 'Read more →', attrs: { href: camp.link, target: '_blank', rel: 'noopener' } }));
+  const campaignBlock = el('div', { class: 'campaign' }, [
+    el('div', { class: 'worldbuilding-sample' }, headerChildren)
   ]);
-  sbGrid.appendChild(block);
+
+  const statblocks = (camp.statblocks || []).filter(sb => sb.name);
+  if (statblocks.length) {
+    const sbList = el('div', { class: 'entries' });
+    statblocks.forEach(sb => {
+      const content = el('div', { class: 'entry-content' }, [
+        sb.role ? el('span', { class: 'entry-type', text: sb.role }) : null,
+        el('h3', { class: 'entry-title', text: sb.name }),
+        sb.note ? el('p', { class: 'entry-blurb', text: sb.note }) : null
+      ]);
+      sbList.appendChild(el('div', { class: 'entry' }, [media(sb.image, sb.name, 'entry-media'), content]));
+    });
+    campaignBlock.appendChild(sbList);
+  }
+
+  campaignsWrap.appendChild(campaignBlock);
 });
 
-const wb = C.tabletopWork?.worldbuildingSample;
-if (wb && wb.title) {
-  const sampleWrap = document.getElementById('worldbuilding-sample');
-  const children = [
-    el('h3', { text: wb.title }),
-    el('p', { text: wb.summary })
-  ];
-  if (wb.link) children.push(el('a', { text: 'Read more →', attrs: { href: wb.link, target: '_blank', rel: 'noopener' } }));
-  sampleWrap.appendChild(el('div', { class: 'worldbuilding-sample' }, children));
-}
-
-/* ---------- Technical projects (same editorial entry style) ---------- */
+/* ---------- Technical projects (text-only entries, no images) ---------- */
 const techGrid = document.getElementById('technical-grid');
 techGrid.className = 'entries';
 (C.technicalProjects || []).forEach(p => {
@@ -119,7 +125,7 @@ techGrid.className = 'entries';
     tagLine(p.tags),
     links
   ]);
-  techGrid.appendChild(el('div', { class: 'entry' }, [media(p.image, p.title, 'entry-media'), content]));
+  techGrid.appendChild(el('div', { class: 'entry no-media' }, [content]));
 });
 
 /* ---------- Experience ---------- */
