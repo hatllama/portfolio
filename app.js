@@ -46,13 +46,7 @@ const metaWrap = document.getElementById('hero-meta');
 const metaParts = [C.identity.location, C.identity.email].filter(Boolean);
 metaParts.forEach((m, i) => {
   metaWrap.appendChild(el('span', { text: m }));
-  if (i < metaParts.length - 1 || (C.identity.links && C.identity.links.length)) {
-    metaWrap.appendChild(el('span', { class: 'pipe', text: '/' }));
-  }
-});
-(C.identity.links || []).forEach((link, i) => {
-  metaWrap.appendChild(el('a', { text: link.label, attrs: { href: link.url, target: '_blank', rel: 'noopener' } }));
-  if (i < C.identity.links.length - 1) metaWrap.appendChild(el('span', { class: 'pipe', text: '/' }));
+  if (i < metaParts.length - 1) metaWrap.appendChild(el('span', { class: 'pipe', text: '/' }));
 });
 
 /* ---------- About ---------- */
@@ -177,7 +171,34 @@ if (C.resumeUrl) {
 }
 document.getElementById('footer-fine').textContent = `${C.identity.email}  /  ${C.identity.phone}`;
 
+/* ---------- Links section ---------- */
+const linksRow = document.getElementById('links-row');
+(C.identity.links || []).forEach(link => {
+  linksRow.appendChild(el('a', { class: 'link-chip', text: link.label, attrs: { href: link.url, target: '_blank', rel: 'noopener' } }));
+});
+
 /* ---------- Mobile nav toggle ---------- */
 document.getElementById('nav-toggle').addEventListener('click', () => {
   document.getElementById('nav-links').classList.toggle('open');
+});
+
+/* ---------- Image lightbox (click any project/statblock image to expand) ---------- */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.addEventListener('click', (e) => {
+  const img = e.target.closest('.entry-media img');
+  if (img) {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    return;
+  }
+  if (e.target === lightbox || e.target === lightboxImg) {
+    lightbox.classList.remove('open');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
 });

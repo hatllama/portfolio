@@ -164,6 +164,33 @@ section:first-of-type { border-top: none; }
 .about-text { max-width: 720px; font-size: 1.18rem; color: var(--bone-dim); margin-top: 4px; }
 .about-text :first-letter { font-family: var(--display); font-weight: 700; font-size: 2.8em; color: var(--gold); float: left; line-height: 0.8; margin: 8px 8px 0 0; }
 
+/* ---------- Links section ---------- */
+.links-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.link-chip {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 12px 22px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.link-chip:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ---------- Lightbox ---------- */
+.entry-media img, .statblock-media img { cursor: zoom-in; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(6,11,10,0.94);
+  display: none; align-items: center; justify-content: center;
+  padding: 48px; cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border: 1px solid var(--hairline); }
+
 /* ---------- Footer ---------- */
 footer { padding: 50px 0 70px; text-align: center; }
 footer .rule-full { height: 1px; background: var(--hairline); margin-bottom: 40px; }
