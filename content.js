@@ -198,7 +198,7 @@ const SITE_CONTENT = {
     {
       title: "Backend Developer",
       org: "Lookout",
-      dates: "2025–Present",
+      dates: "2025",
       points: [
         "Designed the testing suite for the backend system on a team of 8+.",
         "Reviewed pull requests and tested team members' code."
