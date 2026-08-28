@@ -43,7 +43,7 @@ document.getElementById('hero-tagline').textContent = C.identity.tagline;
 document.getElementById('hero-eyebrow').textContent = C.identity.role;
 
 const metaWrap = document.getElementById('hero-meta');
-const metaParts = [C.identity.location, C.identity.email].filter(Boolean);
+const metaParts = [C.identity.location, C.identity.email, C.identity.availability].filter(Boolean);
 metaParts.forEach((m, i) => {
   metaWrap.appendChild(el('span', { text: m }));
   if (i < metaParts.length - 1) metaWrap.appendChild(el('span', { class: 'pipe', text: '/' }));
@@ -97,13 +97,26 @@ const campaignsWrap = document.getElementById('campaigns');
         el('h3', { class: 'entry-title', text: sb.name }),
         sb.note ? el('p', { class: 'entry-blurb', text: sb.note }) : null
       ]);
-      sbList.appendChild(el('div', { class: 'entry' }, [media(sb.image, sb.name, 'entry-media'), content]));
+      sbList.appendChild(el('div', { class: 'entry' }, [media(sb.image, sb.name, 'entry-media statblock-media'), content]));
     });
     campaignBlock.appendChild(sbList);
   }
 
   campaignsWrap.appendChild(campaignBlock);
 });
+
+/* ---------- Competitive play (optional — hides itself if absent) ---------- */
+const competitiveSection = document.getElementById('competitive');
+if (C.competitive && (C.competitive.results || []).length) {
+  document.getElementById('competitive-intro').textContent =
+    (C.competitive.intro || '').replace(/\s+/g, ' ').trim();
+  const resultsList = document.getElementById('competitive-results');
+  C.competitive.results.forEach(r => resultsList.appendChild(el('li', { text: r })));
+} else {
+  competitiveSection.style.display = 'none';
+  const navItem = document.querySelector('.nav-links a[href="#competitive"]');
+  if (navItem) navItem.parentElement.style.display = 'none';
+}
 
 /* ---------- Technical projects (text-only entries, no images) ---------- */
 const techGrid = document.getElementById('technical-grid');
