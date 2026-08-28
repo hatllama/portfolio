@@ -105,18 +105,7 @@ const campaignsWrap = document.getElementById('campaigns');
   campaignsWrap.appendChild(campaignBlock);
 });
 
-/* ---------- Competitive play (optional — hides itself if absent) ---------- */
-const competitiveSection = document.getElementById('competitive');
-if (C.competitive && (C.competitive.results || []).length) {
-  document.getElementById('competitive-intro').textContent =
-    (C.competitive.intro || '').replace(/\s+/g, ' ').trim();
-  const resultsList = document.getElementById('competitive-results');
-  C.competitive.results.forEach(r => resultsList.appendChild(el('li', { text: r })));
-} else {
-  competitiveSection.style.display = 'none';
-  const navItem = document.querySelector('.nav-links a[href="#competitive"]');
-  if (navItem) navItem.parentElement.style.display = 'none';
-}
+
 
 /* ---------- Technical projects (text-only entries, no images) ---------- */
 const techGrid = document.getElementById('technical-grid');
@@ -173,6 +162,19 @@ const eduList = document.getElementById('education-list');
     ])
   ]));
 });
+
+/* ---------- Competitive play (optional — hides itself if absent) ---------- */
+const competitiveSection = document.getElementById('competitive');
+if (C.competitive && (C.competitive.results || []).length) {
+  document.getElementById('competitive-intro').textContent =
+    (C.competitive.intro || '').replace(/\s+/g, ' ').trim();
+  const resultsList = document.getElementById('competitive-results');
+  C.competitive.results.forEach(r => resultsList.appendChild(el('li', { text: r })));
+} else {
+  competitiveSection.style.display = 'none';
+  const navItem = document.querySelector('.nav-links a[href="#competitive"]');
+  if (navItem) navItem.parentElement.style.display = 'none';
+}
 
 /* ---------- Footer ---------- */
 const resumeLink = document.getElementById('resume-link');
