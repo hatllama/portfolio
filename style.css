@@ -161,10 +161,28 @@ section:first-of-type { border-top: none; }
 .timeline-item li { margin-bottom: 5px; }
 @media (max-width: 640px) { .timeline-item { grid-template-columns: 1fr; gap: 6px; } }
 
-/* ---------- Competitive results ---------- */
-.results-list { list-style: none; margin: 0; padding: 0; max-width: 66ch; }
-.results-list li { position: relative; padding: 16px 0 16px 26px; border-top: 1px solid var(--hairline); color: var(--bone-dim); }
-.results-list li::before { content: '\2021'; position: absolute; left: 0; color: var(--gold); font-family: var(--display); }
+/* ---------- Role line + "what I designed" list on project entries ---------- */
+.entry-role { font-family: var(--mono); font-size: 0.78rem; color: var(--gold-dim); margin: -2px 0 2px; letter-spacing: 0.02em; }
+
+.built { margin: 4px 0 2px; }
+.built-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.built-items { margin: 0; padding: 0; list-style: none; max-width: 62ch; }
+.built-items li { position: relative; padding-left: 18px; margin-bottom: 6px; color: var(--bone-dim); font-size: 0.98rem; }
+.built-items li::before { content: '—'; position: absolute; left: 0; color: var(--gold-dim); }
+
+.outcome { margin-top: 6px; }
+.outcome-text { margin: 0; color: var(--bone-dim); font-size: 0.98rem; max-width: 62ch; font-style: italic; }
+
+/* ---------- Influences ---------- */
+.influences-list { list-style: none; margin: 0; padding: 0; max-width: 68ch; }
+.influences-list li { padding: 18px 0; border-top: 1px solid var(--hairline); }
+.influence-title { display: block; font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: var(--bone); margin-bottom: 4px; }
+.influence-note { display: block; color: var(--bone-dim); font-size: 1rem; }
+
+/* ---------- Personal ---------- */
+.personal-list { list-style: none; margin: 0; padding: 0; max-width: 68ch; }
+.personal-list li { position: relative; padding: 14px 0 14px 28px; color: var(--bone-dim); font-size: 1.05rem; }
+.personal-list li::before { content: '\2021'; position: absolute; left: 0; top: 14px; color: var(--gold-dim); font-family: var(--display); }
 
 /* ---------- Skills ---------- */
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 40px; margin-top: 30px; }

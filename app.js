@@ -36,6 +36,15 @@ function tagLine(tags) {
   return line;
 }
 
+function builtList(items) {
+  const clean = (items || []).filter(Boolean);
+  if (!clean.length) return null;
+  return el('div', { class: 'built' }, [
+    el('div', { class: 'built-label', text: 'What I designed' }),
+    el('ul', { class: 'built-items' }, clean.map(i => el('li', { text: i })))
+  ]);
+}
+
 /* ---------- Nav + Hero ---------- */
 document.getElementById('nav-name').textContent = C.identity.name;
 document.getElementById('hero-name').textContent = C.identity.name;
@@ -63,7 +72,9 @@ gamesGrid.className = 'entries';
   const content = el('div', { class: 'entry-content' }, [
     el('span', { class: 'entry-type', text: p.type }),
     el('h3', { class: 'entry-title', text: p.title }),
+    p.role ? el('p', { class: 'entry-role', text: p.role }) : null,
     el('p', { class: 'entry-blurb', text: p.blurb }),
+    builtList(p.built),
     p.designNote ? el('p', { class: 'entry-note', text: p.designNote }) : null,
     tagLine(p.tags),
     links
@@ -83,7 +94,7 @@ const campaignsWrap = document.getElementById('campaigns');
     el('h3', { text: camp.title }),
     el('p', { text: camp.summary })
   ];
-  if (camp.link) headerChildren.push(el('a', { text: 'Read more →', attrs: { href: camp.link, target: '_blank', rel: 'noopener' } }));
+  if (camp.link) headerChildren.push(el('a', { text: camp.linkLabel || 'Read more →', attrs: { href: camp.link, target: '_blank', rel: 'noopener' } }));
   const campaignBlock = el('div', { class: 'campaign' }, [
     el('div', { class: 'worldbuilding-sample' }, headerChildren)
   ]);
@@ -95,7 +106,11 @@ const campaignsWrap = document.getElementById('campaigns');
       const content = el('div', { class: 'entry-content' }, [
         sb.role ? el('span', { class: 'entry-type', text: sb.role }) : null,
         el('h3', { class: 'entry-title', text: sb.name }),
-        sb.note ? el('p', { class: 'entry-blurb', text: sb.note }) : null
+        sb.note ? el('p', { class: 'entry-blurb', text: sb.note }) : null,
+        sb.outcome ? el('div', { class: 'outcome' }, [
+          el('div', { class: 'built-label', text: 'At the table' }),
+          el('p', { class: 'outcome-text', text: sb.outcome })
+        ]) : null
       ]);
       sbList.appendChild(el('div', { class: 'entry' }, [media(sb.image, sb.name, 'entry-media statblock-media'), content]));
     });
@@ -163,16 +178,36 @@ const eduList = document.getElementById('education-list');
   ]));
 });
 
-/* ---------- Competitive play (optional — hides itself if absent) ---------- */
-const competitiveSection = document.getElementById('competitive');
-if (C.competitive && (C.competitive.results || []).length) {
-  document.getElementById('competitive-intro').textContent =
-    (C.competitive.intro || '').replace(/\s+/g, ' ').trim();
-  const resultsList = document.getElementById('competitive-results');
-  C.competitive.results.forEach(r => resultsList.appendChild(el('li', { text: r })));
+/* ---------- Influences / reading (hides itself while empty) ---------- */
+const influencesSection = document.getElementById('influences');
+const influenceItems = (C.influences?.items || []).filter(i => i && i.title);
+if (influenceItems.length) {
+  document.getElementById('influences-intro').textContent =
+    (C.influences.intro || '').replace(/\s+/g, ' ').trim();
+  const list = document.getElementById('influences-list');
+  influenceItems.forEach(i => {
+    list.appendChild(el('li', {}, [
+      el('span', { class: 'influence-title', text: i.title }),
+      i.note ? el('span', { class: 'influence-note', text: i.note }) : null
+    ]));
+  });
 } else {
-  competitiveSection.style.display = 'none';
-  const navItem = document.querySelector('.nav-links a[href="#competitive"]');
+  influencesSection.style.display = 'none';
+  const navItem = document.querySelector('.nav-links a[href="#influences"]');
+  if (navItem) navItem.parentElement.style.display = 'none';
+}
+
+/* ---------- Personal (hides itself while empty) ---------- */
+const personalSection = document.getElementById('personal');
+const personalItems = (C.personal?.items || []).filter(Boolean);
+if (personalItems.length) {
+  document.getElementById('personal-intro').textContent =
+    (C.personal.intro || '').replace(/\s+/g, ' ').trim();
+  const personalList = document.getElementById('personal-list');
+  personalItems.forEach(i => personalList.appendChild(el('li', { text: i })));
+} else {
+  personalSection.style.display = 'none';
+  const navItem = document.querySelector('.nav-links a[href="#personal"]');
   if (navItem) navItem.parentElement.style.display = 'none';
 }
 
