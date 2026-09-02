@@ -103,8 +103,8 @@ const SITE_CONTENT = {
       role: "Team of 8 · Project lead & lead designer — story, mechanics, direction, balance",
       blurb: "A short narrative puzzle game built around humorous scenarios and comedic problem-solving.",
       built: [
-        "TODO: name two or three actual puzzles or systems you designed here",
-        "TODO: what carried the comedy — timing? failure states? dialogue?"
+        "Designed the narrative puzzles and wordplay.",
+        "Organised and managed the team to ensure the game was completed within the jam's time constraints.",
       ],
       designNote: "The design challenge here mainly came down to balancing multiple projects at once. I had to manage my time effectively to ensure the game was completed within the jam's time constraints.",
       tags: ["Unity", "Game Jam", "Narrative"],
@@ -273,7 +273,6 @@ const SITE_CONTENT = {
     "Design": ["Systems & Mechanics Balancing", "Encounter Design", "Rapid Prototyping", "Playtesting & Iteration", "Tabletop & Homebrew Campaign Design"],
     "Narrative & Worldbuilding": ["Worldbuilding & Lore Architecture", "Narrative Design", "Pantheon & Faction Design", "Multi-Session Arc Structure"],
     "Engines & Tools": ["Unity", "C#", "JavaScript / TypeScript", "Git & GitHub", "Kanka"],
-    "Adjacent Disciplines": ["UI Implementation", "Original Audio Composition", "TODO: add art/modelling/writing tools you actually use"],
     "Playtesting & Player Feedback": ["Live Playtest Facilitation", "Structured Feedback Reporting", "Bug Triage", "Conflict De-escalation"],
     "Languages": ["English", "French", "Spanish"]
   },
