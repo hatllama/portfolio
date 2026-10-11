@@ -122,11 +122,12 @@ const campaignsWrap = document.getElementById('campaigns');
 
 
 
-/* ---------- Technical projects (text-only entries, no images) ---------- */
+/* ---------- Technical projects (image optional — most stay text-only) ---------- */
 const techGrid = document.getElementById('technical-grid');
 techGrid.className = 'entries';
 (C.technicalProjects || []).forEach(p => {
   const links = el('div', { class: 'entry-links' });
+  if (p.liveUrl) links.appendChild(el('a', { text: 'Live →', attrs: { href: p.liveUrl, target: '_blank', rel: 'noopener' } }));
   if (p.codeUrl) links.appendChild(el('a', { text: 'Code →', attrs: { href: p.codeUrl, target: '_blank', rel: 'noopener' } }));
 
   const content = el('div', { class: 'entry-content' }, [
@@ -136,7 +137,10 @@ techGrid.className = 'entries';
     tagLine(p.tags),
     links
   ]);
-  techGrid.appendChild(el('div', { class: 'entry no-media' }, [content]));
+  const entryEl = p.image
+    ? el('div', { class: 'entry' }, [media(p.image, p.title, 'entry-media'), content])
+    : el('div', { class: 'entry no-media' }, [content]);
+  techGrid.appendChild(entryEl);
 });
 
 /* ---------- Experience ---------- */

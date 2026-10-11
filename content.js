@@ -184,11 +184,13 @@ const SITE_CONTENT = {
       codeUrl: "" // TODO
     },
     {
-      title: "BattleSim",
+      title: "Statblock Forge & War Table",
       type: "Tool Suite — D&D Encounter Prep",
-      blurb: "A web-based combat simulator for testing encounters before they reach the table, with a statblock-to-JSON converter and an API-backed statblock draft generator alongside it. Built to cut the slowest part of my own DM prep.",
+      blurb: "A combined DM prep tool: Statblock Forge converts a monster write-up straight into clean, BattleSim-format JSON with no API calls required, and War Table plays the resulting fight out live on a 2D tactical board. Built to cut the slowest part of my own DM prep, and now used by friends running their own tables.",
       tags: ["JavaScript", "Tooling", "Game Design"],
-      codeUrl: "" // TODO
+      liveUrl: "https://hatllama.github.io/statblock-forge/#forge",
+      codeUrl: "https://github.com/hatllama/statblock-forge",
+      image: "images/war-table.jpg"
     },
     {
       title: "TA Assignment System",
