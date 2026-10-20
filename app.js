@@ -133,7 +133,14 @@ techGrid.className = 'entries';
   const content = el('div', { class: 'entry-content' }, [
     el('span', { class: 'entry-type', text: p.type }),
     el('h3', { class: 'entry-title', text: p.title }),
+    p.role ? el('p', { class: 'entry-role', text: p.role }) : null,
     el('p', { class: 'entry-blurb', text: p.blurb }),
+    p.disclaimer ? el('p', { class: 'entry-disclaimer', text: p.disclaimer }) : null,
+    ...(p.sections || []).map(s => el('div', { class: 'outcome' }, [
+      el('div', { class: 'built-label', text: s.label }),
+      el('ul', { class: 'entry-points' }, (s.items || []).map(t => el('li', { text: t })))
+    ])),
+    p.designNote ? el('p', { class: 'entry-note', text: p.designNote }) : null,
     tagLine(p.tags),
     links
   ]);

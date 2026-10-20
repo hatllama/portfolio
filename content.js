@@ -177,20 +177,70 @@ const SITE_CONTENT = {
   // ---------- TECHNICAL / SOFTWARE PROJECTS ----------
   technicalProjects: [
     {
+      title: "Riftbound AI",
+      type: "Rules Engine & Playtesting AI — Riftbound (Duel format)",
+      role: "Solo project · directed design, rules rulings, success criteria",
+      blurb: "A custom rules engine for the card game Riftbound (Core Rules v1.5, Duel format), with AI players built on top of it. It analyses positions, finds strong moves, and explores deck ideas without relying on tournament results — the aim is to find unusual but strong decks and test how new cards change the game.",
+      disclaimer: "Unofficial fan project. Not affiliated with or endorsed by Riot Games.",
+      sections: [
+        {
+          label: "What I did",
+          items: [
+            "Scoped and sequenced the work: a planning workflow broke the project into focused tasks, each with a clear stopping point, and I reviewed every result before moving on.",
+            "Ruled on card interactions against the printed cards — e.g. recalled units become new cards, Gravity Field's tax applies to effect moves, Predict lets you reorder the cards you keep.",
+            "Set the success criteria an AI version must clear before it replaces the last: win rate vs a baseline player, stability across matchups, strength against its earlier selves, and performance on decks full of newly added cards.",
+            "Caught wrong catalog data more than once by checking against the source (The Good Stuff, Riven's stun effect)."
+          ]
+        },
+        {
+          label: "What it does",
+          items: [
+            "Implements roughly 290 cards, including 92 of the 144 cards in the upcoming Radiance set, with hidden information and best-of-three matches.",
+            "Trains players through self-play: the latest version scores 85–96% against a baseline player across ten decks, and holds up on randomly mutated decks full of new cards.",
+            "Builds decks with the AI as the pilot, scoring them against a weighted picture of the real meta.",
+            "Includes a live game reader (in progress) that follows a human game and compares the moves with the AI's."
+          ]
+        }
+      ],
+      designNote: "What it shows: systems design, balance analysis, and rules precision. I treat a card game as something to model and stress-test, and I know when a rule needs a ruling and when it needs a test.",
+      tags: ["Python", "Custom rules engine", "Reinforcement learning (PPO)", "Information-set MCTS", "Built with Claude Code"],
+      codeUrl: ""
+    },
+    {
+      title: "Statblock Forge & War Table",
+      type: "D&D Encounter-Prep Toolkit — Tactical Combat Simulator",
+      role: "Solo project · design and development",
+      blurb: "DMs usually have to guess whether an encounter is too easy or too deadly. Statblock Forge lets you build the encounter, and War Table plays it out on a grid thousands of times, then shows the odds and a replay that explains why each creature acted as it did.",
+      sections: [
+        {
+          label: "What it does",
+          items: [
+            "Forge: converts monster statblocks into structured data without any API calls, includes a library of official SRD 5.2 monsters, and imports player characters from D&D Beyond or Foundry exports, or from PDF character sheets.",
+            "War Table: simulates fights with movement, terrain, cover and line of sight, flying, area effects, reactions, legendary and lair actions, and limited resources like spell slots, Rage and ki. It reports win odds across many runs and a turn-by-turn replay.",
+            "Export: day files in BattleSim format, so it fits into an existing prep workflow."
+          ]
+        },
+        {
+          label: "Design problems I worked on",
+          items: [
+            "What each side knows: the AI can play with full information, blind, or learn about its opponents during the fight, so a monster doesn't magically know a wizard's weak save.",
+            "Making AI behavior legible: every decision comes with a \"why\" line (it goes for the healer, it holds its Rage for the boss).",
+            "Redesigning the AI around a small decision tree for what a creature is trying to do, with scoring for the choices inside that, and a separate approach for spellcasters versus martial characters. In progress; a user-adjustable personality system is planned."
+          ]
+        }
+      ],
+      designNote: "Details: static site on GitHub Pages with no build step, a test suite of 230+ checks, and used by my own gaming group. SRD content is under CC-BY.",
+      tags: ["JavaScript", "Tooling", "Simulation", "AI Behaviour", "Game Design"],
+      liveUrl: "https://hatllama.github.io/statblock-forge/#forge",
+      codeUrl: "https://github.com/hatllama/statblock-forge",
+      image: "images/war-table.jpg"
+    },
+    {
       title: "Riftbound Tournament Overlay",
       type: "Client Work — Real-Time OBS Overlay",
       blurb: "Real-time standings overlay for a live Riftbound event. Puppeteer-based headless scraper polling the event API, served over Express and consumed by OBS as a browser source. Packaged for a non-technical operator: one config block, a single START.bat launcher, and no manual data entry between rounds.",
       tags: ["Node.js", "Puppeteer", "Express", "OBS"],
       codeUrl: "" // TODO
-    },
-    {
-      title: "Statblock Forge & War Table",
-      type: "Tool Suite — D&D Encounter Prep",
-      blurb: "A combined DM prep tool: Statblock Forge converts a monster write-up straight into clean, BattleSim-format JSON with no API calls required, and War Table plays the resulting fight out live on a 2D tactical board. Built to cut the slowest part of my own DM prep, and now used by friends running their own tables.",
-      tags: ["JavaScript", "Tooling", "Game Design"],
-      liveUrl: "https://hatllama.github.io/statblock-forge/#forge",
-      codeUrl: "https://github.com/hatllama/statblock-forge",
-      image: "images/war-table.jpg"
     },
     {
       title: "TA Assignment System",
@@ -274,7 +324,7 @@ const SITE_CONTENT = {
   skills: {
     "Design": ["Systems & Mechanics Balancing", "Encounter Design", "Rapid Prototyping", "Playtesting & Iteration", "Tabletop & Homebrew Campaign Design"],
     "Narrative & Worldbuilding": ["Worldbuilding & Lore Architecture", "Narrative Design", "Pantheon & Faction Design", "Multi-Session Arc Structure"],
-    "Engines & Tools": ["Unity", "C#", "JavaScript / TypeScript", "Git & GitHub", "Kanka"],
+    "Engines & Tools": ["Unity", "C#", "JavaScript / TypeScript", "Git & GitHub", "Kanka", "Unreal Engine", "Blueprints", "C++"],
     "Playtesting & Player Feedback": ["Live Playtest Facilitation", "Structured Feedback Reporting", "Bug Triage", "Conflict De-escalation"],
     "Languages": ["English", "French", "Spanish"]
   },
