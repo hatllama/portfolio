@@ -20,15 +20,16 @@
     <div class="nav-name" id="nav-name">—</div>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#games">Games</a></li>
-      <li><a href="#tabletop">Tabletop</a></li>
-      <li><a href="#influences">Influences</a></li>
-      <li><a href="#technical">Technical</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#personal">Personal</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#games" data-i18n="nav.games">Games</a></li>
+      <li><a href="#tabletop" data-i18n="nav.tabletop">Tabletop</a></li>
+      <li><a href="#influences" data-i18n="nav.influences">Influences</a></li>
+      <li><a href="#technical" data-i18n="nav.technical">Technical</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="#personal" data-i18n="nav.personal">Personal</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li><button class="lang-toggle" id="lang-toggle" type="button"></button></li>
     </ul>
   </div>
 </nav>
@@ -44,21 +45,21 @@
 
 <section id="about">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> About</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.about">About</span></h2><div class="rule"></div></div>
     <p class="about-text" id="about-text"></p>
   </div>
 </section>
 
 <section id="games">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Featured Games</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.games">Featured Games</span></h2><div class="rule"></div></div>
     <div class="grid cols-3" id="games-grid"></div>
   </div>
 </section>
 
 <section id="tabletop">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Tabletop &amp; Worldbuilding</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.tabletop">Tabletop &amp; Worldbuilding</span></h2><div class="rule"></div></div>
     <p class="section-lede" id="tabletop-intro"></p>
     <div id="campaigns"></div>
   </div>
@@ -67,7 +68,7 @@
 
 <section id="influences">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Influences &amp; Reading</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.influences">Influences &amp; Reading</span></h2><div class="rule"></div></div>
     <p class="section-lede" id="influences-intro"></p>
     <ul class="influences-list" id="influences-list"></ul>
   </div>
@@ -75,35 +76,35 @@
 
 <section id="technical">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Technical Projects</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.technical">Technical Projects</span></h2><div class="rule"></div></div>
     <div class="grid cols-2" id="technical-grid"></div>
   </div>
 </section>
 
 <section id="experience">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Experience</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.experience">Experience</span></h2><div class="rule"></div></div>
     <div id="experience-list"></div>
   </div>
 </section>
 
 <section id="education">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Education</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.education">Education</span></h2><div class="rule"></div></div>
     <div id="education-list"></div>
   </div>
 </section>
 
 <section id="skills">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Skills</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.skills">Skills</span></h2><div class="rule"></div></div>
     <div class="skills-grid" id="skills-grid"></div>
   </div>
 </section>
 
 <section id="personal">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Personal</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.personal">Personal</span></h2><div class="rule"></div></div>
     <p class="section-lede" id="personal-intro"></p>
     <ul class="personal-list" id="personal-list"></ul>
   </div>
@@ -111,7 +112,7 @@
 
 <section id="links">
   <div class="wrap">
-    <div class="section-head"><h2><span class="mark">&#8225;</span> Links</h2><div class="rule"></div></div>
+    <div class="section-head"><h2><span class="mark">&#8225;</span> <span data-i18n="h.links">Links</span></h2><div class="rule"></div></div>
     <div class="links-row" id="links-row"></div>
   </div>
 </section>
@@ -119,7 +120,7 @@
 <footer id="contact">
   <div class="wrap">
     <div class="rule-full"></div>
-    <a class="resume-btn" id="resume-link" href="#">Download Résumé</a>
+    <a class="resume-btn" id="resume-link" href="#" data-i18n="resume">Download Résumé</a>
     <div class="fine" id="footer-fine"></div>
   </div>
 </footer>
@@ -129,6 +130,7 @@
 </div>
 
 <script src="content.js"></script>
+<script src="content.fr.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

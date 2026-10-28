@@ -60,10 +60,12 @@ nav {
   border-bottom: 1px solid var(--hairline);
 }
 nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; }
-.nav-name { font-family: var(--display); font-size: 1.15rem; letter-spacing: 0.02em; color: var(--bone); font-style: italic; }
-.nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
-.nav-links a { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bone-dim); }
+.nav-name { white-space: nowrap; font-family: var(--display); font-size: 1.15rem; letter-spacing: 0.02em; color: var(--bone); font-style: italic; }
+.nav-links { display: flex; align-items: center; gap: 20px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { white-space: nowrap; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bone-dim); }
 .nav-links a:hover { color: var(--gold); }
+.lang-toggle { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; background: none; color: var(--gold); border: 1px solid var(--hairline); border-radius: 4px; padding: 5px 12px; cursor: pointer; }
+.lang-toggle:hover { border-color: var(--gold); }
 .nav-toggle { display: none; background: none; border: 1px solid var(--hairline); color: var(--bone); font-size: 1.2rem; padding: 6px 12px; border-radius: 4px; }
 
 @media (max-width: 720px) {
